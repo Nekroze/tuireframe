@@ -6,8 +6,8 @@ import (
 )
 
 func drawScreen(faux ir.Screen, screen tcell.Screen) {
-	for x, row := range faux {
-		for y, cell := range row {
+	for y, row := range faux {
+		for x, cell := range row {
 			drawCell(x, y, cell, screen)
 		}
 	}

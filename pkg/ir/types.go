@@ -7,6 +7,9 @@ type Cell struct {
 }
 
 type ScreenRow map[int]*Cell
+
+// A screen is a two dimensional map of *Cell's where the
+// first index is the y coordinate and the second the x.
 type Screen map[int]ScreenRow
 
 var emptyCell = Cell{}
