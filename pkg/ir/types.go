@@ -15,7 +15,16 @@ type Screen map[int]ScreenRow
 var emptyCell = Cell{}
 
 func (c *Cell) Apply(in Cell) {
-	if in.Character == emptyCell.Character {
+	if c == nil {
+		c = &Cell{}
+	}
+	if in.Character != emptyCell.Character {
 		c.Character = in.Character
+	}
+	if in.Background != emptyCell.Background {
+		c.Background = in.Background
+	}
+	if in.Foreground != emptyCell.Foreground {
+		c.Foreground = in.Foreground
 	}
 }
