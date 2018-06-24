@@ -32,9 +32,9 @@ func (mf MetaFile) ApplyToScreen(screen ir.Screen) {
 }
 
 func (m MetaInstruction) applyToScreen(screen ir.Screen) {
-	for x := 0; x < m.Size.Height; x++ {
-		for y := 0; y < m.Size.Width; y++ {
-			screen[m.Position.X+x][m.Position.Y+y].Apply(m.Cell)
+	for x := 0; x < m.Size.Width; x++ {
+		for y := 0; y < m.Size.Height; y++ {
+			screen[m.Position.Y+y][m.Position.X+x].Apply(m.Cell)
 		}
 	}
 }
