@@ -1,5 +1,32 @@
 {
+    "_vim": "// vim: set ft=json:",
 	"description": "a simple example screen",
-	"instrutions": [
+	"instructions": [
+		{
+			"position": {
+				"x": 0,
+				"y": 0
+			},
+			"size": {
+				"width": 15,
+				"height": 5
+			},
+			"cell": {
+				"bg": "darkgreen"
+			}
+		},
+		{
+			"position": {
+				"x": 2,
+				"y": 2
+			},
+			"size": {
+				"width": 11,
+				"height": 1
+			},
+			"cell": {
+				"fg": "darkred"
+			}
+		}
 	]
 }

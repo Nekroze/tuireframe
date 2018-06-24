@@ -1,11 +1,23 @@
 package input
 
-import "github.com/Nekroze/tuireframe/pkg/ir"
+import (
+	"github.com/Nekroze/tuireframe/pkg/ir"
+)
+
+type Coordinates struct {
+	X int `json:"x"`
+	Y int `json:"y"`
+}
+
+type Dimensions struct {
+	Width  int `json:"width"`
+	Height int `json:"height"`
+}
 
 type MetaInstruction struct {
-	X    int     `json:"x"`
-	Y    int     `json:"y"`
-	Cell ir.Cell `json:"cell"`
+	Position Coordinates `json:"position"`
+	Size     Dimensions  `json:"size"`
+	Cell     ir.Cell     `json:"cell"`
 }
 
 type MetaFile struct {
@@ -20,5 +32,9 @@ func (mf MetaFile) ApplyToScreen(screen ir.Screen) {
 }
 
 func (m MetaInstruction) applyToScreen(screen ir.Screen) {
-	screen[m.X][m.Y].Apply(m.Cell)
+	for x := 0; x < m.Size.Height; x++ {
+		for y := 0; y < m.Size.Width; y++ {
+			screen[m.Position.X+x][m.Position.Y+y].Apply(m.Cell)
+		}
+	}
 }
