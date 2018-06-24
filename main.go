@@ -34,27 +34,26 @@ var parser = &docopt.Parser{
 
 func main() {
 	opts, err := docopt.ParseArgs(usage, os.Args[1:], version)
-	if err != nil {
-		panic(err)
-	}
+	maybePanic(err)
+
 	var config Config
-	if err = opts.Bind(&config); err != nil {
-		panic(err)
-	}
-	if err = loadAndDisplay(config); err != nil {
+	maybePanic(opts.Bind(&config))
+	maybePanic(loadAndDisplay(config))
+}
+
+func maybePanic(err error) {
+	if err != nil {
 		panic(err)
 	}
 }
 
 func loadAndDisplay(config Config) error {
 	screen, err := input.LoadScreen(config.Screen)
-	if err != nil {
-		return err
-	}
+	maybePanic(err)
+
 	meta, err := input.LoadMeta(config.Meta)
-	if err != nil {
-		return err
-	}
+	maybePanic(err)
+
 	meta.ApplyToScreen(screen)
 	return display.Screen(screen)
 }
