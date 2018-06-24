@@ -27,11 +27,6 @@ type Config struct {
 	Meta   string
 }
 
-var parser = &docopt.Parser{
-	HelpHandler:  docopt.PrintHelpOnly,
-	OptionsFirst: true,
-}
-
 func main() {
 	opts, err := docopt.ParseArgs(usage, os.Args[1:], version)
 	maybePanic(err)
