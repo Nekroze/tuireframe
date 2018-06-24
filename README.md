@@ -28,13 +28,13 @@ or if you want to get fancy with bash.
 
 To exit the rendering press the `q` key.
 
-# Screen Files
+## Screen Files
 
 A screen file is essentially a plain text file that holds all the characters, glyphs, etc. and their positions and is edited by simply typing them into the places you want them to render at.
 
 This should look like a greyscale version of the final product. This text file is your canvas.
 
-# Meta Files
+## Meta Files
 
 A meta file is a json document that has a sequence of instructions to decorate the rendering of the screen be modifying cells. Cells have a foreground or `fg` field and a background or `bg` field that contain a color string, the cell can also override the character being displayed with the `char` field.
 
