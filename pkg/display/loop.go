@@ -18,8 +18,8 @@ func Screen(screen ir.Screen) (err error) {
 		return e
 	}
 	s.SetStyle(tcell.StyleDefault.
-		Foreground(tcell.ColorBlack).
-		Background(tcell.ColorWhite))
+		Foreground(tcell.ColorWhite).
+		Background(tcell.ColorBlack))
 	s.Clear()
 	drawScreen(screen, s)
 	s.Show()
